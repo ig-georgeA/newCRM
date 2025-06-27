@@ -1,0 +1,177 @@
+<div class="column-layout page-container">
+  <div class="column-layout page-header">
+    <div class="row-layout header">
+      <div class="row-layout page-title">
+        <igx-icon class="icon">
+          support_agent
+        </igx-icon>
+        <h5 class="content">
+          Help &amp; Support
+        </h5>
+      </div>
+      <button igxButton="contained" disabled type="button" igxRipple class="button">
+        <igx-icon>
+          add
+        </igx-icon>
+        <span>New Ticket</span>
+      </button>
+    </div>
+  </div>
+  <div class="row-layout group">
+    <div class="row-layout metrics">
+      <igx-card class="card">
+        <igx-card-header>
+          <div igxCardThumbnail>
+            <igx-avatar shape="circle" class="avatar">
+              <igx-icon class="icon_1">
+                headset
+              </igx-icon>
+            </igx-avatar>
+          </div>
+          <h3 igxCardHeaderTitle>
+            Total Tickets
+          </h3>
+          <h5 igxCardHeaderSubtitle>
+        </h5>
+        </igx-card-header>
+        <igx-card-content class="body-content">
+          <div class="column-layout group_1">
+            <h3 class="h3">
+              24
+            </h3>
+            <div class="row-layout group_2">
+              <p class="ig-typography__subtitle-2 text">
+                +5%
+              </p>
+              <p class="ig-typography__body-2 content">
+                from last month
+              </p>
+            </div>
+          </div>
+        </igx-card-content>
+      </igx-card>
+      <igx-card class="card">
+        <igx-card-header>
+          <div igxCardThumbnail>
+            <igx-avatar shape="circle" class="avatar_1">
+              <igx-icon class="icon_1">
+                access_time
+              </igx-icon>
+            </igx-avatar>
+          </div>
+          <h3 igxCardHeaderTitle>
+            Open Tickets
+          </h3>
+          <h5 igxCardHeaderSubtitle>
+        </h5>
+        </igx-card-header>
+        <igx-card-content class="body-content">
+          <div class="column-layout group_1">
+            <h3 class="h3">
+              14
+            </h3>
+            <div class="row-layout group_2">
+              <p class="ig-typography__subtitle-2 text">
+                +3%
+              </p>
+              <p class="ig-typography__body-2 content">
+                from last month
+              </p>
+            </div>
+          </div>
+        </igx-card-content>
+      </igx-card>
+      <igx-card class="card">
+        <igx-card-header>
+          <div igxCardThumbnail>
+            <igx-avatar shape="circle" class="avatar_2">
+              <igx-icon class="icon_1">
+                task_alt
+              </igx-icon>
+            </igx-avatar>
+          </div>
+          <h3 igxCardHeaderTitle>
+            Resolved Tickets
+          </h3>
+          <h5 igxCardHeaderSubtitle>
+        </h5>
+        </igx-card-header>
+        <igx-card-content class="body-content">
+          <div class="column-layout group_1">
+            <h3 class="h3">
+              10
+            </h3>
+            <div class="row-layout group_2">
+              <p class="ig-typography__subtitle-2 text_1">
+                -15%
+              </p>
+              <p class="ig-typography__body-2 content">
+                from last month
+              </p>
+            </div>
+          </div>
+        </igx-card-content>
+      </igx-card>
+      <igx-card class="card">
+        <igx-card-header>
+          <div igxCardThumbnail>
+            <igx-avatar shape="circle" class="avatar_3">
+              <igx-icon class="icon_1">
+                av_timer
+              </igx-icon>
+            </igx-avatar>
+          </div>
+          <h3 igxCardHeaderTitle>
+            Avg. Resolution Time
+          </h3>
+          <h5 igxCardHeaderSubtitle>
+        </h5>
+        </igx-card-header>
+        <igx-card-content class="body-content">
+          <div class="column-layout group_1">
+            <h3 class="h3">
+              1.5 days
+            </h3>
+            <div class="row-layout group_2">
+              <p class="ig-typography__subtitle-2 text">
+                +0.5%
+              </p>
+              <p class="ig-typography__body-2 content">
+                from last month
+              </p>
+            </div>
+          </div>
+        </igx-card-content>
+      </igx-card>
+    </div>
+    <div class="column-layout group_3">
+      <div class="row-layout group_4">
+        <div class="column-layout group_5">
+          <p class="content">
+            Tickets by Priority
+          </p>
+          <igx-pie-chart [dataSource]="financialBoxOfficeRevenue" labelMemberPath="Franchise" valueMemberPath="TotalWorldBoxOfficeRevenue" class="pie-chart"></igx-pie-chart>
+        </div>
+        <div class="column-layout group_5">
+          <p class="content">
+            Ticket Trend
+          </p>
+          <igx-category-chart [dataSource]="financialSales" chartType="spline" initialGroups="Country" initialSummaries="SUM(Profit), SUM(Sales)" groupSorts="Country asc" computedPlotAreaMarginMode="series" class="category-chart"></igx-category-chart>
+        </div>
+      </div>
+      <div class="column-layout group_6">
+        <p class="content">
+          All Support Tickets
+        </p>
+        <igx-grid [data]="cRMAIGeneratedDataSupportTickets" primaryKey="TicketNumber" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+          <igx-column field="TicketNumber" dataType="string" header="TicketNumber" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Subject" dataType="string" header="Subject" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Customer" dataType="string" header="Customer" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Status" dataType="string" header="Status" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Priority" dataType="string" header="Priority" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Updated" dataType="date" header="Updated" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+        </igx-grid>
+      </div>
+    </div>
+  </div>
+</div>

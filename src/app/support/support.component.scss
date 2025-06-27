@@ -1,0 +1,227 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.page-container {
+  background-color: var(--ig-gray-100);
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: auto;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.page-header {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+}
+.row-layout {
+  display: flex;
+}
+.header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+}
+.page-title {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  min-width: 50px;
+}
+.group {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 16px;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.metrics {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 260px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.card {
+  height: max-content;
+  min-width: 240px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_1 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+  position: relative;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+}
+.group_3 {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 16px;
+  position: relative;
+  min-width: 320px;
+  min-height: 50px;
+  flex-grow: 5;
+  flex-basis: 0;
+}
+.group_4 {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 16px;
+  position: relative;
+}
+.group_5 {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+  min-width: 280px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_6 {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.icon {
+  --size: 24px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--ig-secondary-400);
+}
+.content {
+  height: max-content;
+  min-width: min-content;
+}
+.avatar {
+  --igx-avatar-background: var(--ig-gray-500);
+}
+.icon_1 {
+  color: var(--ig-surface-500);
+}
+.h3 {
+  color: var(--ig-gray-900);
+  height: max-content;
+  min-width: min-content;
+}
+.text {
+  color: #75B158;
+  height: max-content;
+  min-width: min-content;
+}
+.avatar_1 {
+  --igx-avatar-background: #2375CB;
+}
+.avatar_2 {
+  --igx-avatar-background: #75B158;
+}
+.text_1 {
+  color: #E41C77;
+  height: max-content;
+  min-width: min-content;
+}
+.avatar_3 {
+  --igx-avatar-background: #DF5393;
+}
+.avatar::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_1::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_2::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_3::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.body-content {
+  min-width: 50px;
+  min-height: 50px;
+}
+.button {
+  height: max-content;
+  flex-shrink: 0;
+}
+.pie-chart {
+  --brushes: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  --outlines: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  min-height: 250px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.category-chart {
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.grid {
+  --ig-size: var(--ig-size-medium);
+  min-width: 248px;
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}

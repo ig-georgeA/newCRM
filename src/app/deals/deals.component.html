@@ -1,0 +1,587 @@
+<div class="column-layout page-container">
+  <div class="column-layout page-header">
+    <div class="row-layout header-1">
+      <div class="row-layout page-title-1">
+        <igx-icon class="icon">
+          work_outline
+        </igx-icon>
+        <h5 class="content">
+          Deals
+        </h5>
+      </div>
+      <button igxButton="contained" disabled type="button" igxRipple class="button">
+        <igx-icon>
+          add
+        </igx-icon>
+        <span>New Deal</span>
+      </button>
+    </div>
+  </div>
+  <div class="row-layout metrics">
+    <igx-card class="card">
+      <igx-card-header>
+        <div igxCardThumbnail>
+          <igx-avatar shape="circle" class="avatar">
+            <igx-icon class="icon_1">
+              handshake
+            </igx-icon>
+          </igx-avatar>
+        </div>
+        <h3 igxCardHeaderTitle>
+          Total Deals
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+      </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <div class="column-layout group">
+          <h3 class="h3">
+            11
+          </h3>
+          <div class="row-layout group_1">
+            <p class="ig-typography__subtitle-2 text">
+              +5%
+            </p>
+            <p class="ig-typography__body-2 content">
+              from last month
+            </p>
+          </div>
+        </div>
+      </igx-card-content>
+    </igx-card>
+    <igx-card class="card">
+      <igx-card-header>
+        <div igxCardThumbnail>
+          <igx-avatar shape="circle" class="avatar_1">
+            <igx-icon class="icon_1">
+              access_time
+            </igx-icon>
+          </igx-avatar>
+        </div>
+        <h3 igxCardHeaderTitle>
+          Open Deals
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+      </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <div class="column-layout group">
+          <h3 class="h3">
+            8
+          </h3>
+          <div class="row-layout group_1">
+            <p class="ig-typography__subtitle-2 text">
+              +3%
+            </p>
+            <p class="ig-typography__body-2 content">
+              from last month
+            </p>
+          </div>
+        </div>
+      </igx-card-content>
+    </igx-card>
+    <igx-card class="card">
+      <igx-card-header>
+        <div igxCardThumbnail>
+          <igx-avatar shape="circle" class="avatar_2">
+            <igx-icon class="icon_1">
+              attach_money
+            </igx-icon>
+          </igx-avatar>
+        </div>
+        <h3 igxCardHeaderTitle>
+          Total Open Value
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+      </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <div class="column-layout group">
+          <h3 class="h3">
+            $75,000
+          </h3>
+          <div class="row-layout group_1">
+            <p class="ig-typography__subtitle-2 text">
+              +0.5%
+            </p>
+            <p class="ig-typography__body-2 content">
+              from last month
+            </p>
+          </div>
+        </div>
+      </igx-card-content>
+    </igx-card>
+    <igx-card class="card">
+      <igx-card-header>
+        <div igxCardThumbnail>
+          <igx-avatar shape="circle" class="avatar_3">
+            <igx-icon class="icon_1">
+              percent
+            </igx-icon>
+          </igx-avatar>
+        </div>
+        <h3 igxCardHeaderTitle>
+          Deal Win Rate
+        </h3>
+        <h5 igxCardHeaderSubtitle>
+      </h5>
+      </igx-card-header>
+      <igx-card-content class="body-content">
+        <div class="column-layout group">
+          <h3 class="h3">
+            50%
+          </h3>
+          <div class="row-layout group_1">
+            <p class="ig-typography__subtitle-2 text_1">
+              -10%
+            </p>
+            <p class="ig-typography__body-2 content">
+              from last month
+            </p>
+          </div>
+        </div>
+      </igx-card-content>
+    </igx-card>
+  </div>
+  <div class="column-layout group_2">
+    <div class="row-layout filters-and-sorting">
+      <div class="row-layout group_3">
+        <igx-input-group type="border" class="user-input">
+          <igx-prefix>
+            <igx-icon class="icon_2">
+              search
+            </igx-icon>
+          </igx-prefix>
+          <input type="search" placeholder="Search deals..." igxInput />
+        </igx-input-group>
+      </div>
+      <div class="row-layout group_4">
+        <igx-select type="border" [(ngModel)]="value" class="user-input">
+          <igx-select-item value="1">
+            All statuses
+          </igx-select-item>
+          <igx-select-item value="2">
+            Qualified
+          </igx-select-item>
+          <igx-select-item value="4">
+            Proposal
+          </igx-select-item>
+          <igx-select-item value="5">
+            Negotiation
+          </igx-select-item>
+          <igx-select-item value="6">
+            Closed Won
+          </igx-select-item>
+          <igx-select-item value="7">
+            Closed Lost
+          </igx-select-item>
+        </igx-select>
+        <igx-buttongroup class="button-group">
+          <button igxButton igxRipple>
+            <igx-icon>
+              grid_on
+            </igx-icon>
+          </button>
+          <button disabled igxButton igxRipple>
+            <igx-icon>
+              format_list_bulleted
+            </igx-icon>
+          </button>
+        </igx-buttongroup>
+      </div>
+    </div>
+    <div class="row-layout kanban-view">
+      <div class="column-layout kanban-column">
+        <div class="row-layout group_5">
+          <div class="row-layout group_6">
+            <div class="column-layout group_7">
+              <h6 class="content_2">
+                Qualified
+              </h6>
+              <div class="row-layout group_8">
+                <p class="ig-typography__subtitle-2 content_2">
+                  Total Value
+                </p>
+                <p class="ig-typography__subtitle-2 content_2">
+                  $23,000
+                </p>
+              </div>
+            </div>
+          </div>
+          <igx-avatar initials="3" shape="circle" class="avatar_4"></igx-avatar>
+        </div>
+        <div class="column-layout group_9">
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Consulting Engagement
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Healthcare Provider
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $8,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Jane Smith
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 11, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Hardware Purchase
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Acme Corp
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $6,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    John Doe
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 11, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Client Onboarding
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Tech Corp
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $9,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Peter Jones
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 10, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <button igxButton="flat" type="button" igxRipple class="button_1">
+            <igx-icon>
+              add
+            </igx-icon>
+            <span>New</span>
+          </button>
+        </div>
+      </div>
+      <div class="column-layout kanban-column-1">
+        <div class="row-layout group_11">
+          <div class="row-layout group_6">
+            <div class="column-layout group_7">
+              <h6 class="content_2">
+                Proposal Sent
+              </h6>
+              <div class="row-layout group_8">
+                <p class="ig-typography__subtitle-2 content_2">
+                  Total Value
+                </p>
+                <p class="ig-typography__subtitle-2 content_2">
+                  $14,000
+                </p>
+              </div>
+            </div>
+          </div>
+          <igx-avatar initials="2" shape="circle" class="avatar_4"></igx-avatar>
+        </div>
+        <div class="column-layout group_9">
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Service Upgrade
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Healthy Living
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $4,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Peter Jones
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 9, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Marketing Campaign
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Acme Corp
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $10,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    John Doe
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 8, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+        </div>
+      </div>
+      <div class="column-layout kanban-column-1">
+        <div class="row-layout group_12">
+          <div class="row-layout group_6">
+            <div class="column-layout group_7">
+              <h6 class="content_2">
+                Negotiation
+              </h6>
+              <div class="row-layout group_8">
+                <p class="ig-typography__subtitle-2 content_2">
+                  Total Value
+                </p>
+                <p class="ig-typography__subtitle-2 content_2">
+                  $38,000
+                </p>
+              </div>
+            </div>
+          </div>
+          <igx-avatar initials="3" shape="circle" class="avatar_4"></igx-avatar>
+        </div>
+        <div class="column-layout group_9">
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Software Integration
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Acme Bank
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $18,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Sandy Anders
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 10, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Cloud Migration
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Giant Corp
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $13,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Jane Smith
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 7, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Consulting Engagement
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Healthcare Provider
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $7,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Peter Jones
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 5, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+        </div>
+      </div>
+      <div class="column-layout kanban-column-1">
+        <div class="row-layout group_13">
+          <div class="row-layout group_6">
+            <div class="column-layout group_7">
+              <h6 class="content_2">
+                Closed Won
+              </h6>
+              <div class="row-layout group_8">
+                <p class="ig-typography__subtitle-2 content_2">
+                  Total Value
+                </p>
+                <p class="ig-typography__subtitle-2 content_2">
+                  $13,000
+                </p>
+              </div>
+            </div>
+          </div>
+          <igx-avatar initials="2" shape="circle" class="avatar_4"></igx-avatar>
+        </div>
+        <div class="column-layout group_9">
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Client Onboarding
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Tech Corp
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6">
+                  $9,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Jane Smith
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    Jun 1, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Software License
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Tech Co.
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6_1">
+                  $4,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Peter Jones
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    May 25, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+        </div>
+      </div>
+      <div class="column-layout kanban-column-1">
+        <div class="row-layout group_14">
+          <div class="row-layout group_6">
+            <div class="column-layout group_7">
+              <h6 class="content_2">
+                Closed Lost
+              </h6>
+              <div class="row-layout group_8">
+                <p class="ig-typography__subtitle-2 content_2">
+                  Total Value
+                </p>
+                <p class="ig-typography__subtitle-2 content_2">
+                  $6,000
+                </p>
+              </div>
+            </div>
+          </div>
+          <igx-avatar initials="1" shape="circle" class="avatar_4"></igx-avatar>
+        </div>
+        <div class="column-layout group_9">
+          <igx-card class="card_1">
+            <igx-card-header>
+              <h3 igxCardHeaderTitle>
+                Service Upgrade
+              </h3>
+              <h5 igxCardHeaderSubtitle>
+                Retail Pro
+              </h5>
+            </igx-card-header>
+            <igx-card-content class="body-content">
+              <div class="column-layout group_7">
+                <h6 class="h6_1">
+                  $6,000
+                </h6>
+                <div class="row-layout group_10">
+                  <p class="ig-typography__body-2 content">
+                    Jane Smith
+                  </p>
+                  <p class="ig-typography__body-2 content">
+                    May 20, 2025
+                  </p>
+                </div>
+              </div>
+            </igx-card-content>
+          </igx-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

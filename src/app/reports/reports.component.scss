@@ -1,0 +1,89 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.page-container {
+  background-color: var(--ig-gray-100);
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: auto;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.page-header {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+}
+.row-layout {
+  display: flex;
+}
+.header-1 {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  min-width: 50px;
+}
+.page-title-1 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  min-width: 50px;
+}
+.group {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.icon {
+  --size: 24px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--ig-secondary-400);
+}
+.h5 {
+  height: max-content;
+  min-width: min-content;
+}
+.reveal-dash-board {
+  min-width: 400px;
+  min-height: 200px;
+  flex-grow: 1;
+  flex-basis: 0;
+}

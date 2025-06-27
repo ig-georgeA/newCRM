@@ -1,0 +1,258 @@
+<div class="column-layout page-container">
+  <div class="column-layout page-header">
+    <div class="row-layout header">
+      <div class="row-layout page-title">
+        <igx-icon class="icon">
+          people_outline
+        </igx-icon>
+        <h5 class="h5">
+          Customers
+        </h5>
+      </div>
+      <div class="row-layout buttons">
+        <button igxButton="contained" type="button" igxRipple (click)="newCustomerDialog.toggle()" class="button">
+          <igx-icon>
+            add
+          </igx-icon>
+          <span>New Customer</span>
+        </button>
+        <button igxButton="outlined" disabled type="button" igxRipple class="button">
+          <igx-icon>
+            search
+          </igx-icon>
+          <span>Discover companies</span>
+        </button>
+        <button igxButton="outlined" disabled type="button" igxRipple class="button">
+          <igx-icon>
+            import_export
+          </igx-icon>
+          <span>Import</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="column-layout group">
+    <div class="row-layout filters-and-sorting-1">
+      <div class="row-layout group_1">
+        <igx-select type="box" [(ngModel)]="value" class="user-input">
+          <igx-select-item value="1">
+            My Customers
+          </igx-select-item>
+          <igx-select-item value="2">
+            All Customers
+          </igx-select-item>
+        </igx-select>
+        <igx-input-group type="border" class="user-input">
+          <igx-prefix>
+            <igx-icon class="icon_1">
+              search
+            </igx-icon>
+          </igx-prefix>
+          <input type="search" placeholder="Search" igxInput />
+        </igx-input-group>
+      </div>
+      <igx-select type="border" [(ngModel)]="value1" class="user-input">
+        <igx-select-item value="1">
+          Recently updated
+        </igx-select-item>
+        <igx-select-item value="2">
+          Name
+        </igx-select-item>
+      </igx-select>
+    </div>
+    <igx-grid primaryKey="customerId" rowSelection="single" [hideRowSelectors]="true" [rowEditable]="true" [allowAdvancedFiltering]="true" [advancedFilteringExpressionsTree]="advancedFilteringExpressionsTree" pagingMode="remote" [allowFiltering]="true" filterMode="excelStyleFilter" [data]="grid_Data_Request?.items || []" (rowAdded)="rowAddedGrid($event)" (rowDeleted)="rowDeletedGrid($event)" (rowSelectionChanging)="selectedCustomer = $event.newSelection[0]" (rowEditDone)="rowEditDoneGrid($event)" class="grid">
+      <igx-grid-toolbar>
+        <igx-grid-toolbar-actions>
+          <igx-grid-toolbar-advanced-filtering></igx-grid-toolbar-advanced-filtering>
+        </igx-grid-toolbar-actions>
+        <igx-grid-toolbar-title>Grid Toolbar</igx-grid-toolbar-title>
+      </igx-grid-toolbar>
+      <igx-paginator [perPage]="grid_Page_Size" [totalRecords]="grid_Data_Request?.totalRecordsCount || 0" [page]="grid_Page_Index" (pageChange)="grid_Page_Index = $event" (perPageChange)="grid_Page_Size = $event"></igx-paginator>
+      <igx-column-group header="Customer info" class="column-group"></igx-column-group>
+      <igx-column field="customerId" dataType="string" header="customerId" width="137px" [pinned]="true" [editable]="false" [filterable]="true" [sortable]="true" [selectable]="false">
+        <ng-template igxCell let-cell="cell">
+          <a target="_blank" [routerLink]="['/customer-details/AROUT']" class="ig-typography__body-2 hyperlink">
+            {{ cell.value }}
+          </a>
+        </ng-template>
+      </igx-column>
+      <igx-column field="companyName" dataType="string" header="companyName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="contactName" dataType="string" header="contactName" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="contactTitle" dataType="string" header="contactTitle" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column-group header="Address" [collapsible]="true" class="column-group"></igx-column-group>
+      <igx-column field="address.phone" dataType="string" header="Phone" [filterable]="true" [sortable]="true" [selectable]="false">
+        <ng-template igxCell let-cell="cell">
+          <igx-chip class="chip">
+            <igx-prefix>
+              <igx-icon class="icon_2">
+                phone
+              </igx-icon>
+            </igx-prefix>
+            {{ cell.value }}
+          </igx-chip>
+        </ng-template>
+      </igx-column>
+      <igx-column-group header="Address" [collapsible]="true" class="column-group"></igx-column-group>
+      <igx-column field="address.country" dataType="string" header="Country" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="address.street" dataType="string" header="Street" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-column field="address.city" dataType="string" header="City" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+      <igx-action-strip>
+        <igx-grid-pinning-actions></igx-grid-pinning-actions>
+        <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
+      </igx-action-strip>
+    </igx-grid>
+  </div>
+</div>
+<igx-dialog [closeOnOutsideSelect]="true" #newCustomerDialog>
+  <igx-dialog-title>
+    <h5>
+      New Customer
+    </h5>
+  </igx-dialog-title>
+  <ng-container>
+    <form (ngSubmit)="ngSubmitCustomerDto()" [formGroup]="customerDtoFormModel" (reset)="resetCustomerDto($event)" #newcustomer class="column-layout new_customer">
+      <div class="column-layout form_fields">
+        <igx-banner #banner class="banner">
+          <p>
+            {{ serverError }}
+          </p>
+          <igx-banner-actions>
+            <button igxButton="flat" type="button" igxRipple (click)="banner.toggle()" class="button_1">
+              Dismiss
+            </button>
+          </igx-banner-actions>
+          <igx-icon class="icon_3">
+            error
+          </igx-icon>
+        </igx-banner>
+        <igx-input-group type="border">
+          <input type="text" igxInput formControlName="companyName" />
+          <label igxLabel>Company name</label>
+          @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("required")) {
+            <igx-hint>This field is required</igx-hint>
+          }
+          @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("minlength")) {
+            <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+          }
+          @if ((customerDtoFormModel.controls.companyName.touched || customerDtoFormModel.controls.companyName.dirty) && customerDtoFormModel.controls.companyName.hasError("maxlength")) {
+            <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+          }
+        </igx-input-group>
+        <ng-container formGroupName="address">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="country" />
+            <label igxLabel>Country</label>
+            @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("required")) {
+              <igx-hint>This field is required</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.address.controls.country.touched || customerDtoFormModel.controls.address.controls.country.dirty) && customerDtoFormModel.controls.address.controls.country.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+        </ng-container>
+        <igx-input-group type="border">
+          <input type="text" igxInput formControlName="contactName" />
+          <label igxLabel>Contact name</label>
+          @if ((customerDtoFormModel.controls.contactName.touched || customerDtoFormModel.controls.contactName.dirty) && customerDtoFormModel.controls.contactName.hasError("minlength")) {
+            <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+          }
+          @if ((customerDtoFormModel.controls.contactName.touched || customerDtoFormModel.controls.contactName.dirty) && customerDtoFormModel.controls.contactName.hasError("maxlength")) {
+            <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+          }
+        </igx-input-group>
+        <igx-input-group type="border">
+          <input type="text" igxInput formControlName="contactTitle" />
+          <label igxLabel>Contact title</label>
+          @if ((customerDtoFormModel.controls.contactTitle.touched || customerDtoFormModel.controls.contactTitle.dirty) && customerDtoFormModel.controls.contactTitle.hasError("minlength")) {
+            <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+          }
+          @if ((customerDtoFormModel.controls.contactTitle.touched || customerDtoFormModel.controls.contactTitle.dirty) && customerDtoFormModel.controls.contactTitle.hasError("maxlength")) {
+            <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+          }
+        </igx-input-group>
+        <ng-container formGroupName="address">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="street" />
+            <label igxLabel>Street</label>
+            @if ((customerDtoFormModel.controls.address.controls.street.touched || customerDtoFormModel.controls.address.controls.street.dirty) && customerDtoFormModel.controls.address.controls.street.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.address.controls.street.touched || customerDtoFormModel.controls.address.controls.street.dirty) && customerDtoFormModel.controls.address.controls.street.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 100 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+        </ng-container>
+        <ng-container formGroupName="address">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="city" />
+            <label igxLabel>City</label>
+            @if ((customerDtoFormModel.controls.address.controls.city.touched || customerDtoFormModel.controls.address.controls.city.dirty) && customerDtoFormModel.controls.address.controls.city.hasError("minlength")) {
+              <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+            }
+            @if ((customerDtoFormModel.controls.address.controls.city.touched || customerDtoFormModel.controls.address.controls.city.dirty) && customerDtoFormModel.controls.address.controls.city.hasError("maxlength")) {
+              <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+            }
+          </igx-input-group>
+        </ng-container>
+        <div class="row-layout group_2">
+          <ng-container formGroupName="address">
+            <igx-input-group type="border" class="input">
+              <input type="text" igxInput formControlName="region" />
+              <label igxLabel>Region</label>
+              @if ((customerDtoFormModel.controls.address.controls.region.touched || customerDtoFormModel.controls.address.controls.region.dirty) && customerDtoFormModel.controls.address.controls.region.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.region.touched || customerDtoFormModel.controls.address.controls.region.dirty) && customerDtoFormModel.controls.address.controls.region.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 50 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+          <ng-container formGroupName="address">
+            <igx-input-group type="border" class="input">
+              <input type="text" igxInput formControlName="postalCode" />
+              <label igxLabel>Postal code</label>
+              @if ((customerDtoFormModel.controls.address.controls.postalCode.touched || customerDtoFormModel.controls.address.controls.postalCode.dirty) && customerDtoFormModel.controls.address.controls.postalCode.hasError("minlength")) {
+                <igx-hint>Entry should be at least 0 character(s) long</igx-hint>
+              }
+              @if ((customerDtoFormModel.controls.address.controls.postalCode.touched || customerDtoFormModel.controls.address.controls.postalCode.dirty) && customerDtoFormModel.controls.address.controls.postalCode.hasError("maxlength")) {
+                <igx-hint>Entry should be no more than 20 character(s) long</igx-hint>
+              }
+            </igx-input-group>
+          </ng-container>
+        </div>
+        <ng-container formGroupName="address">
+          <igx-input-group type="border">
+            <input type="text" igxInput formControlName="phone" />
+            <label igxLabel>Phone</label>
+            @if ((customerDtoFormModel.controls.address.controls.phone.touched || customerDtoFormModel.controls.address.controls.phone.dirty) && customerDtoFormModel.controls.address.controls.phone.hasError("pattern")) {
+              <igx-hint>Entry does not match the required pattern</igx-hint>
+            }
+          </igx-input-group>
+        </ng-container>
+      </div>
+      <igx-snackbar actionText="OK" (clicked)="snackbarsuccess.toggle()" #snackbarsuccess>
+        Your new submission was saved successfully!
+      </igx-snackbar>
+      <igx-snackbar actionText="OK" (clicked)="snackbarerror.toggle()" #snackbarerror>
+        Uh-oh! Something went wrong.
+      </igx-snackbar>
+      <div class="row-layout group_3">
+        <button igxButton="flat" type="reset" igxRipple class="button_2">
+          Reset
+        </button>
+        <div class="row-layout group_4">
+          <button igxButton="outlined" type="button" igxRipple (click)="clickButton2()" class="button_2">
+            Cancel
+          </button>
+          <button igxButton="contained" type="submit" igxRipple class="button_2">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+  <igx-dialog-actions></igx-dialog-actions>
+</igx-dialog>

@@ -1,0 +1,398 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.page-container {
+  background-color: var(--ig-gray-100);
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  overflow: auto;
+  position: relative;
+  padding: 16px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px;
+}
+.row-layout {
+  display: flex;
+}
+.header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+}
+.page-title {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 12px;
+  position: relative;
+  min-width: 50px;
+}
+.metrics {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+.card {
+  height: max-content;
+  min-width: 240px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_1 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 0;
+  position: relative;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+}
+.sections {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 16px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.group_3 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 576px;
+  min-height: 50px;
+  flex-grow: 2;
+  flex-basis: 0;
+}
+.group_4 {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px 16px 24px;
+  min-width: 50px;
+  min-height: 50px;
+  flex-shrink: 0;
+}
+.group_5 {
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+}
+.group_6 {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+}
+.group_7 {
+  background-color: var(--ig-surface-500);
+  border-color: var(--ig-gray-200);
+  border-width: 1px;
+  border-style: solid;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 24px;
+  position: relative;
+  padding: 16px 16px 24px;
+  min-width: max-content;
+  max-height: 428px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.group_8 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  overflow: auto;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.group_9 {
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 8px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.group_10 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 4px;
+  position: relative;
+}
+.group_11 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 16px;
+  position: relative;
+  min-width: 576px;
+  min-height: 50px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.group_12 {
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 2px;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.group_13 {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 2px;
+  position: relative;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+.group_14 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 2px;
+  position: relative;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+.group_15 {
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: flex-start;
+  position: relative;
+}
+.group_16 {
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  gap: 2px;
+  position: relative;
+  padding: 0 0 8px;
+  min-width: 50px;
+  min-height: 50px;
+}
+.group_17 {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: -2px;
+  position: relative;
+  min-width: 50px;
+  flex-shrink: 0;
+}
+.group_18 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: 2px;
+  position: relative;
+  min-width: 50px;
+}
+.icon {
+  --size: 24px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--ig-secondary-400);
+}
+.content {
+  height: max-content;
+  min-width: min-content;
+}
+.avatar {
+  --igx-avatar-background: #75B158;
+}
+.icon_1 {
+  color: var(--ig-surface-500);
+}
+.h3 {
+  color: var(--ig-gray-900);
+  height: max-content;
+  min-width: min-content;
+}
+.text {
+  color: #75B158;
+  height: max-content;
+  min-width: min-content;
+}
+.avatar_1 {
+  --igx-avatar-background: #9D55A0;
+}
+.avatar_2 {
+  --igx-avatar-background: #DF5393;
+}
+.avatar_3 {
+  --igx-avatar-background: var(--ig-gray-500);
+}
+.avatar_4 {
+  --igx-avatar-background: #2375CB;
+}
+.text_1 {
+  color: #E41C77;
+  height: max-content;
+  min-width: min-content;
+}
+.hyperlink {
+  text-align: right;
+  color: var(--ig-secondary-400);
+  cursor: pointer;
+  height: max-content;
+  min-width: min-content;
+  flex-shrink: 0;
+}
+.avatar_5 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: rgba(119, 176, 97, 0.13);
+}
+.icon_2 {
+  color: #609546;
+}
+.hyperlink_1 {
+  color: var(--ig-secondary-400);
+  cursor: pointer;
+  height: max-content;
+  min-width: min-content;
+}
+.text_2 {
+  color: var(--ig-gray-600);
+  height: max-content;
+  min-width: min-content;
+}
+.avatar_6 {
+  --ig-size: var(--ig-size-small);
+  --igx-avatar-background: var(--ig-gray-100);
+}
+.icon_3 {
+  color: var(--ig-gray-600);
+}
+.text_3 {
+  color: var(--ig-gray-800);
+  height: max-content;
+  min-width: min-content;
+}
+.chip {
+  width: max-content;
+  height: max-content;
+}
+.icon_4 {
+  --size: 18px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+.icon_5 {
+  color: var(--ig-secondary-500);
+}
+.chip_1 {
+  margin: 4px 0 0;
+  width: max-content;
+  height: max-content;
+}
+.avatar_7::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_1_1::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_2_1::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_3_1::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_4_1::part(base) {
+  --igx-avatar-color: var(--ig-surface-500);
+}
+.avatar_5_1::part(base) {
+  --igx-avatar-color: #609546;
+}
+.avatar_6_1::part(base) {
+  --igx-avatar-color: var(--ig-gray-600);
+}
+.avatar_6_2::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.avatar_6_3::part(base) {
+  --igx-avatar-color: var(--ig-secondary-500);
+}
+.body-content {
+  min-width: 50px;
+  min-height: 50px;
+}
+.category-chart {
+  --brushes: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  --outlines: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  --marker-brushes: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  --marker-outlines: #72B24D #9362A3 #F06583 #FCB13F #407DB7;
+  min-width: 300px;
+  min-height: 300px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.list {
+  height: max-content;
+}
