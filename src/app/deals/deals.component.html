@@ -152,11 +152,11 @@
               search
             </igx-icon>
           </igx-prefix>
-          <input type="search" placeholder="Search deals..." igxInput />
+          <input type="search" placeholder="Search deals..." igxInput [(ngModel)]="value" />
         </igx-input-group>
       </div>
       <div class="row-layout group_4">
-        <igx-select type="border" [(ngModel)]="value" class="user-input">
+        <igx-select type="border" [(ngModel)]="value1" class="user-input">
           <igx-select-item value="1">
             All statuses
           </igx-select-item>

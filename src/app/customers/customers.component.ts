@@ -34,7 +34,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   public selectedCustomer?: CustomerDto;
-  public serverError?: string;
 
   private _grid_Page_Size: number = 20;
   public get grid_Page_Size(): number {
@@ -57,13 +56,14 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.grid_Data_Request$.next();
   }
   public value: any = 2;
-  public value1: any = 1;
+  public value1?: string;
+  public value2: any = 1;
   public customerDtoFormModel: FormGroup<CustomerDtoForm>;
 
   constructor(
     private northwindSwaggerService: NorthwindSwaggerService,
   ) {
-    this.customerDtoFormModel = this.createNew_customerFormGroup();
+    this.customerDtoFormModel = this.createNew_customer_formFormGroup();
   }
 
 
@@ -92,12 +92,22 @@ export class CustomersComponent implements OnInit, OnDestroy {
   }
 
   public async rowEditDoneGrid(e: IGridEditDoneEventArgs): Promise<void> {
+    let data;
     if(e.isAddRow == false) {
-      await firstValueFrom(this.northwindSwaggerService.putCustomerDto(e.rowData?.customerId, e.rowData));
+      data = await firstValueFrom(this.northwindSwaggerService.putCustomerDto(e.rowData?.customerId, e.rowData));
+    }
+    if (data) {
+      this.snackbarsuccess?.toggle();
+    } else {
+      this.snackbarerror?.toggle();
     }
   }
 
   public async ngSubmitCustomerDto(): Promise<void> {
+    if (this.customerDtoFormModel.invalid) {
+      this.customerDtoFormModel.markAllAsTouched();
+      return;
+    }
     const data = await firstValueFrom(this.northwindSwaggerService.postCustomerDto(this.customerDtoFormModel.value));
     if (data) {
       this.newCustomerDialog?.toggle();
@@ -108,7 +118,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
     }
   }
 
-  private createNew_customerFormGroup() {
+  private createNew_customer_formFormGroup() {
     return new FormGroup({
       customerId: new FormControl<string | null>(null),
       companyName: new FormControl<string | null>(null, [Validators.required, Validators.minLength(0), Validators.maxLength(50)]),
@@ -131,7 +141,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
   }
 
   public clickButton2(): void {
-    this.newCustomerDialog?.toggle();
     this.customerDtoFormModel.reset();
+    this.newCustomerDialog?.toggle();
   }
 }

@@ -42,16 +42,16 @@
             All Customers
           </igx-select-item>
         </igx-select>
-        <igx-input-group type="border" class="user-input">
+        <igx-input-group type="search" class="user-input">
           <igx-prefix>
             <igx-icon class="icon_1">
               search
             </igx-icon>
           </igx-prefix>
-          <input type="search" placeholder="Search" igxInput />
+          <input type="search" placeholder="Search" igxInput [(ngModel)]="value1" />
         </igx-input-group>
       </div>
-      <igx-select type="border" [(ngModel)]="value1" class="user-input">
+      <igx-select type="border" [(ngModel)]="value2" class="user-input">
         <igx-select-item value="1">
           Recently updated
         </igx-select-item>
@@ -71,7 +71,7 @@
       <igx-column-group header="Customer info" class="column-group"></igx-column-group>
       <igx-column field="customerId" dataType="string" header="customerId" width="137px" [pinned]="true" [editable]="false" [filterable]="true" [sortable]="true" [selectable]="false">
         <ng-template igxCell let-cell="cell">
-          <a target="_blank" [routerLink]="['/customer-details/AROUT']" class="ig-typography__body-2 hyperlink">
+          <a target="_self" [routerLink]="['/customer-details/AROUT']" class="ig-typography__body-2 hyperlink">
             {{ cell.value }}
           </a>
         </ng-template>
@@ -103,19 +103,17 @@
     </igx-grid>
   </div>
 </div>
-<igx-dialog [closeOnOutsideSelect]="true" #newCustomerDialog>
+<igx-dialog [closeOnEscape]="false" #newCustomerDialog>
   <igx-dialog-title>
     <h5>
       New Customer
     </h5>
   </igx-dialog-title>
   <ng-container>
-    <form (ngSubmit)="ngSubmitCustomerDto()" [formGroup]="customerDtoFormModel" (reset)="resetCustomerDto($event)" #newcustomer class="column-layout new_customer">
+    <form (ngSubmit)="ngSubmitCustomerDto()" [formGroup]="customerDtoFormModel" (reset)="resetCustomerDto($event)" #newcustomerform class="column-layout new_customer_form">
       <div class="column-layout form_fields">
         <igx-banner #banner class="banner">
-          <p>
-            {{ serverError }}
-          </p>
+          <p></p>
           <igx-banner-actions>
             <button igxButton="flat" type="button" igxRipple (click)="banner.toggle()" class="button_1">
               Dismiss
@@ -254,5 +252,4 @@
       </div>
     </form>
   </ng-container>
-  <igx-dialog-actions></igx-dialog-actions>
 </igx-dialog>

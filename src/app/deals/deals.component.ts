@@ -9,5 +9,6 @@ import { IGX_BUTTON_GROUP_DIRECTIVES, IGX_CARD_DIRECTIVES, IGX_INPUT_GROUP_DIREC
   styleUrls: ['./deals.component.scss']
 })
 export class DealsComponent {
-  public value: any = 1;
+  public value?: string;
+  public value1: any = 1;
 }
