@@ -23,8 +23,8 @@
     "@igniteui/material-icons-extended": "^3.0.0",
     "@infragistics/igniteui-angular": "~20.0.0",
     "hammerjs": "~2.0.8",
-    "igniteui-angular-charts": "~19.0.0",
-    "igniteui-angular-core": "~19.0.0",
+    "igniteui-angular-charts": "~20.0.0",
+    "igniteui-angular-core": "~20.0.0",
     "minireset.css": "~0.0.7",
     "reveal-sdk-wrappers": "0.1.3",
     "reveal-sdk-wrappers-angular": "0.1.3",
@@ -37,21 +37,7 @@
       "@angular/core": "^20.0.0",
       "@angular/common": "^20.0.0"
     },
-    "igniteui-angular-charts": {
-      "@angular/core": "^20.0.0",
-      "@angular/common": "^20.0.0",
-      "@angular/compiler": "^20.0.0"
-    },
-    "igniteui-angular-gauges": {
-      "@angular/core": "^20.0.0",
-      "@angular/common": "^20.0.0",
-      "@angular/compiler": "^20.0.0"
-    },
-    "igniteui-angular-maps": {
-      "@angular/core": "^20.0.0",
-      "@angular/common": "^20.0.0",
-      "@angular/compiler": "^20.0.0"
-    }
+    "rxjs": "~7.8.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~20.0.0",
@@ -69,7 +55,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-unicorn": "^53.0.0",
-    "@igniteui/angular-schematics": "~20.0.1451",
+    "@igniteui/angular-schematics": "~20.0.1454",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",

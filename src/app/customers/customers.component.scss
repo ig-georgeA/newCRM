@@ -183,17 +183,17 @@
   min-width: min-content;
   flex-shrink: 0;
 }
-.new_customer {
+.new_customer_form {
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
   gap: 16px;
   position: relative;
   width: max-content;
-  height: 729px;
+  height: 563px;
   min-width: 50px;
   min-height: 50px;
-  max-height: 729px;
+  max-height: 563px;
 }
 .button_1 {
   --ig-size: var(--ig-size-medium);

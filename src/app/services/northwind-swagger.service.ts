@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { CustomerDto } from '../models/northwind-swagger/customer-dto';
 import { CustomerDtoPagedResultDto } from '../models/northwind-swagger/customer-dto-paged-result-dto';
 import { OrderDto } from '../models/northwind-swagger/order-dto';
@@ -34,24 +34,31 @@ export class NorthwindSwaggerService {
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDtoPagedResultDto | undefined>('getCustomerDtoPagedResultDto', undefined)));
   }
 
-  public postCustomerDto(data: any): Observable<CustomerDto | undefined> {
-    if (!data) {
-      return of(undefined);
-    }
+  public postCustomerDto(data?: CustomerDto): Observable<CustomerDto | undefined> {
     const options = {
       headers: {
         Authorization: 'Bearer <auth_value>',
       },
     };
-    const body = data;
+    const body = data ?? {
+      customerId: 'string',
+      companyName: 'string',
+      contactName: 'string',
+      contactTitle: 'string',
+      address: {
+        street: 'string',
+        city: 'string',
+        region: 'string',
+        postalCode: 'string',
+        country: 'string',
+        phone: 'string'
+      }
+    };
     return this.http.post<CustomerDto | undefined>(`${API_ENDPOINT}/Customers`, body, options)
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('postCustomerDto', undefined)));
   }
 
   public deleteCustomerDto(id: string): Observable<CustomerDto | undefined> {
-    if (!id) {
-      return of(undefined);
-    }
     const options = {
       headers: {
         Authorization: 'Bearer <auth_value>',
@@ -61,40 +68,41 @@ export class NorthwindSwaggerService {
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('deleteCustomerDto', undefined)));
   }
 
-  public putCustomerDto(id: string, data: any): Observable<CustomerDto | undefined> {
-    if (!id || !data) {
-      return of(undefined);
-    }
+  public putCustomerDto(id: string, data?: CustomerDto): Observable<CustomerDto | undefined> {
     const options = {
       headers: {
         Authorization: 'Bearer <auth_value>',
       },
     };
-    const body = data;
+    const body = data ?? {
+      customerId: 'string',
+      companyName: 'string',
+      contactName: 'string',
+      contactTitle: 'string',
+      address: {
+        street: 'string',
+        city: 'string',
+        region: 'string',
+        postalCode: 'string',
+        country: 'string',
+        phone: 'string'
+      }
+    };
     return this.http.put<CustomerDto | undefined>(`${API_ENDPOINT}/Customers/${id}`, body, options)
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('putCustomerDto', undefined)));
   }
 
   public getCustomerDto(id: string): Observable<CustomerDto | undefined> {
-    if (!id) {
-      return of(undefined);
-    }
     return this.http.get<CustomerDto | undefined>(`${API_ENDPOINT}/Customers/${id}`)
       .pipe(catchError(ErrorHandlerService.handleError<CustomerDto | undefined>('getCustomerDto', undefined)));
   }
 
   public getOrderDtoList(id: string): Observable<OrderDto[]> {
-    if (!id) {
-      return of([]);
-    }
     return this.http.get<OrderDto[]>(`${API_ENDPOINT}/Customers/${id}/Orders`)
       .pipe(catchError(ErrorHandlerService.handleError<OrderDto[]>('getOrderDtoList', [])));
   }
 
   public getProductDtoList(id: number): Observable<ProductDto[]> {
-    if (!id) {
-      return of([]);
-    }
     return this.http.get<ProductDto[]>(`${API_ENDPOINT}/Orders/${id}/Products`)
       .pipe(catchError(ErrorHandlerService.handleError<ProductDto[]>('getProductDtoList', [])));
   }

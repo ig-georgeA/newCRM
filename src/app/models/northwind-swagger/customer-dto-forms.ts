@@ -2,9 +2,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AddressDtoForm } from './address-dto-forms';
 
 export interface CustomerDtoForm {
-  customerId: FormControl<string | null>
+  customerId: FormControl<string | undefined | null>
   companyName: FormControl<string | null>
-  contactName: FormControl<string | null>
-  contactTitle: FormControl<string | null>
+  contactName: FormControl<string | undefined | null>
+  contactTitle: FormControl<string | undefined | null>
   address: FormGroup<AddressDtoForm>
 }

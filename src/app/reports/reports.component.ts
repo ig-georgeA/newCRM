@@ -10,9 +10,12 @@ import { RevealViewComponent } from 'reveal-sdk-wrappers-angular';
   styleUrls: ['./reports.component.scss']
 })
 export class ReportsComponent {
-  dashboardOptions: RevealViewOptions = {
+  public options: RevealViewOptions = {
     header: {
-      showHeader: false
+      showHeader: false,
+      menu: {
+        menu: false
+      }
     },
     visualizations: {
       menu: {

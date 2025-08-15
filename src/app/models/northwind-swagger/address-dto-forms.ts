@@ -6,5 +6,5 @@ export interface AddressDtoForm {
   region: FormControl<string | null>
   postalCode: FormControl<string | null>
   country: FormControl<string | null>
-  phone: FormControl<string | null>
+  phone: FormControl<string | undefined | null>
 }

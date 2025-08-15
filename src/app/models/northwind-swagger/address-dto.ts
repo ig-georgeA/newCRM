@@ -4,5 +4,5 @@ export interface AddressDto {
   region: string;
   postalCode: string;
   country: string;
-  phone: string;
+  phone?: string;
 }

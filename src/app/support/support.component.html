@@ -9,7 +9,7 @@
           Help &amp; Support
         </h5>
       </div>
-      <button igxButton="contained" disabled type="button" igxRipple class="button">
+      <button igxButton="contained" disabled="" type="button" igxRipple class="button">
         <igx-icon>
           add
         </igx-icon>
@@ -164,12 +164,12 @@
           All Support Tickets
         </p>
         <igx-grid [data]="cRMAIGeneratedDataSupportTickets" primaryKey="TicketNumber" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
-          <igx-column field="TicketNumber" dataType="string" header="TicketNumber" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
-          <igx-column field="Subject" dataType="string" header="Subject" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
-          <igx-column field="Customer" dataType="string" header="Customer" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
-          <igx-column field="Status" dataType="string" header="Status" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
-          <igx-column field="Priority" dataType="string" header="Priority" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
-          <igx-column field="Updated" dataType="date" header="Updated" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="TicketNumber" oldDataType="string" header="TicketNumber" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Subject" oldDataType="string" header="Subject" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Customer" oldDataType="string" header="Customer" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Status" oldDataType="string" header="Status" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Priority" oldDataType="string" header="Priority" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+          <igx-column field="Updated" oldDataType="date" header="Updated" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
         </igx-grid>
       </div>
     </div>

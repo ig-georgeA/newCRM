@@ -9,7 +9,7 @@
           Deals
         </h5>
       </div>
-      <button igxButton="contained" disabled type="button" igxRipple class="button">
+      <button igxButton="contained" disabled="" type="button" igxRipple class="button">
         <igx-icon>
           add
         </igx-icon>
@@ -146,13 +146,13 @@
   <div class="column-layout group_2">
     <div class="row-layout filters-and-sorting">
       <div class="row-layout group_3">
-        <igx-input-group type="border" class="user-input">
+        <igx-input-group type="search" class="user-input">
           <igx-prefix>
             <igx-icon class="icon_2">
               search
             </igx-icon>
           </igx-prefix>
-          <input type="search" placeholder="Search deals..." igxInput />
+          <input type="search" [ngModel]="ngModel" placeholder="Search deals..." igxInput />
         </igx-input-group>
       </div>
       <div class="row-layout group_4">
@@ -182,7 +182,7 @@
               grid_on
             </igx-icon>
           </button>
-          <button disabled igxButton igxRipple>
+          <button disabled="" igxButton igxRipple>
             <igx-icon>
               format_list_bulleted
             </igx-icon>

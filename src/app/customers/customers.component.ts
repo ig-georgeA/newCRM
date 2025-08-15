@@ -15,14 +15,6 @@ import { NorthwindSwaggerService } from '../services/northwind-swagger.service';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit, OnDestroy {
-  advancedFilteringExpressionsTree =	{
-    "filteringOperands": [],
-    "operator": 0,
-    "entity": null,
-    "returnFields": null
-  };	
-
-
   @ViewChild('newCustomerDialog', { static: true, read: IgxDialogComponent})
   private newCustomerDialog?: IgxDialogComponent;
 
@@ -34,7 +26,6 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   public selectedCustomer?: CustomerDto;
-  public serverError?: string;
 
   private _grid_Page_Size: number = 20;
   public get grid_Page_Size(): number {
@@ -56,25 +47,27 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this._grid_Page_Index = value;
     this.grid_Data_Request$.next();
   }
-  public value: any = 2;
-  public value1: any = 1;
+  public value: string = '2';
+  public ngModel?: string;
+  public value1: string = '1';
   public customerDtoFormModel: FormGroup<CustomerDtoForm>;
 
   constructor(
     private northwindSwaggerService: NorthwindSwaggerService,
   ) {
-    this.customerDtoFormModel = this.createNew_customerFormGroup();
+    this.customerDtoFormModel = this.createNew_customer_formFormGroup();
   }
 
 
   ngOnInit() {
-    this.northwindSwaggerService.getCustomerDtoPagedResultDto(this.grid_Page_Index as any, this.grid_Page_Size as any, '').pipe(takeUntil(this.destroy$)).subscribe(
+    this.northwindSwaggerService.getCustomerDtoPagedResultDto(this.grid_Page_Index ?? 0, this.grid_Page_Size ?? 0, '').pipe(takeUntil(this.destroy$)).subscribe(
       data => this.grid_Data_Request = data
     );
-    this.grid_Data_Request$.pipe(takeUntil(this.destroy$)).subscribe(
-      () => { this.northwindSwaggerService.getCustomerDtoPagedResultDto(this.grid_Page_Index as any, this.grid_Page_Size as any, '').pipe(take(1)).subscribe(
+    this.grid_Data_Request$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.northwindSwaggerService.getCustomerDtoPagedResultDto(this.grid_Page_Index ?? 0, this.grid_Page_Size ?? 0, '').pipe(take(1)).subscribe(
         data => this.grid_Data_Request = data
-    )});
+      );
+    });
   }
 
   ngOnDestroy() {
@@ -83,22 +76,32 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.grid_Data_Request$.complete();
   }
 
-  public async rowAddedGrid(e: IRowDataEventArgs): Promise<void> {
-    await firstValueFrom(this.northwindSwaggerService.postCustomerDto(e.rowData));
+  public async rowAddedGrid(e: any): Promise<void> {
+    await firstValueFrom(this.northwindSwaggerService.postCustomerDto(e));
   }
 
   public async rowDeletedGrid(e: IRowDataEventArgs): Promise<void> {
-    await firstValueFrom(this.northwindSwaggerService.deleteCustomerDto(e.rowKey?.customerId));
+    await firstValueFrom(this.northwindSwaggerService.deleteCustomerDto((e.rowData as CustomerDtoPagedResultDto)?.customerId));
   }
 
-  public async rowEditDoneGrid(e: IGridEditDoneEventArgs): Promise<void> {
+  public async rowEditDoneGrid(e: IGridEditDoneEventArgs, e: any): Promise<void> {
+    let data;
     if(e.isAddRow == false) {
-      await firstValueFrom(this.northwindSwaggerService.putCustomerDto(e.rowData?.customerId, e.rowData));
+      data = await firstValueFrom(this.northwindSwaggerService.putCustomerDto((e.rowData as CustomerDtoPagedResultDto)?.customerId, e));
+    }
+    if (data) {
+      this.snackbarsuccess?.toggle();
+    } else {
+      this.snackbarerror?.toggle();
     }
   }
 
   public async ngSubmitCustomerDto(): Promise<void> {
-    const data = await firstValueFrom(this.northwindSwaggerService.postCustomerDto(this.customerDtoFormModel.value));
+    if (this.customerDtoFormModel.invalid) {
+      this.customerDtoFormModel.markAllAsTouched();
+      return;
+    }
+    const data = await firstValueFrom(this.northwindSwaggerService.postCustomerDto(this.customerDtoFormModel.value as CustomerDto));
     if (data) {
       this.newCustomerDialog?.toggle();
       this.grid_Page_Index = parseFloat('0');
@@ -108,19 +111,19 @@ export class CustomersComponent implements OnInit, OnDestroy {
     }
   }
 
-  private createNew_customerFormGroup() {
+  private createNew_customer_formFormGroup() {
     return new FormGroup({
-      customerId: new FormControl<string | null>(null),
+      customerId: new FormControl<string | undefined | null>(null),
       companyName: new FormControl<string | null>(null, [Validators.required, Validators.minLength(0), Validators.maxLength(50)]),
-      contactName: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
-      contactTitle: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
+      contactName: new FormControl<string | undefined | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
+      contactTitle: new FormControl<string | undefined | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
       address: new FormGroup({
         street: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(100)]),
         city: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
         region: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(50)]),
         postalCode: new FormControl<string | null>(null, [Validators.minLength(0), Validators.maxLength(20)]),
         country: new FormControl<string | null>(null, [Validators.required, Validators.minLength(0), Validators.maxLength(50)]),
-        phone: new FormControl<string | null>(null, Validators.pattern('^\\+?[1-9]\\d{1,14}$')),
+        phone: new FormControl<string | undefined | null>(null, Validators.pattern('^\\+?[1-9]\\d{1,14}$')),
       }),
     });
   }
@@ -130,8 +133,8 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.customerDtoFormModel.reset();
   }
 
-  public clickButton2(): void {
-    this.newCustomerDialog?.toggle();
+  public clickButton(): void {
     this.customerDtoFormModel.reset();
+    this.newCustomerDialog?.toggle();
   }
 }

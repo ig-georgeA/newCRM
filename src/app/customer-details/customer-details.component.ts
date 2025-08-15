@@ -61,24 +61,27 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy {
     this.northwindSwaggerService.getCustomerDto(this.rCustomerID).pipe(takeUntil(this.destroy$)).subscribe(
       data => this.selectedCustomer1 = data
     );
-    this.selectedCustomer1$.pipe(takeUntil(this.destroy$)).subscribe(
-      () => { this.northwindSwaggerService.getCustomerDto(this.rCustomerID).pipe(take(1)).subscribe(
+    this.selectedCustomer1$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.northwindSwaggerService.getCustomerDto(this.rCustomerID).pipe(take(1)).subscribe(
         data => this.selectedCustomer1 = data
-    )});
+      );
+    });
     this.northwindSwaggerService.getOrderDtoList(this.rCustomerID).pipe(takeUntil(this.destroy$)).subscribe(
       data => this.northwindSwaggerOrderDto = data
     );
-    this.northwindSwaggerOrderDto$.pipe(takeUntil(this.destroy$)).subscribe(
-      () => { this.northwindSwaggerService.getOrderDtoList(this.rCustomerID).pipe(take(1)).subscribe(
+    this.northwindSwaggerOrderDto$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.northwindSwaggerService.getOrderDtoList(this.rCustomerID).pipe(take(1)).subscribe(
         data => this.northwindSwaggerOrderDto = data
-    )});
-    this.northwindSwaggerService.getProductDtoList(this.selectedOrder?.orderId as any).pipe(takeUntil(this.destroy$)).subscribe(
+      );
+    });
+    this.northwindSwaggerService.getProductDtoList(this.selectedOrder?.orderId ?? 0).pipe(takeUntil(this.destroy$)).subscribe(
       data => this.northwindSwaggerProductDto = data
     );
-    this.northwindSwaggerProductDto$.pipe(takeUntil(this.destroy$)).subscribe(
-      () => { this.northwindSwaggerService.getProductDtoList(this.selectedOrder?.orderId as any).pipe(take(1)).subscribe(
+    this.northwindSwaggerProductDto$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.northwindSwaggerService.getProductDtoList(this.selectedOrder?.orderId ?? 0).pipe(take(1)).subscribe(
         data => this.northwindSwaggerProductDto = data
-    )});
+      );
+    });
   }
 
   ngOnDestroy() {
