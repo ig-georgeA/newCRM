@@ -80,7 +80,7 @@
 }
 .group_2 {
   justify-content: flex-start;
-  align-items: center;
+  align-items: baseline;
   align-content: flex-start;
   gap: 8px;
   position: relative;
@@ -137,6 +137,7 @@
   align-content: flex-start;
   gap: 16px;
   position: relative;
+  flex-shrink: 0;
 }
 .group_7 {
   background-color: var(--ig-surface-500);
@@ -152,7 +153,7 @@
   min-width: max-content;
   max-height: 428px;
   flex-grow: 1;
-  flex-shrink: 0;
+  flex-basis: 0;
 }
 .group_8 {
   justify-content: flex-start;

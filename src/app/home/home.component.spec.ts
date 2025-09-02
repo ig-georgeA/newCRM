@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { IgxIconComponent, IGX_CARD_DIRECTIVES, IgxAvatarComponent, IGX_LIST_DIRECTIVES, IGX_CHIPS_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES } from '@infragistics/igniteui-angular';
+import { IgxIconComponent, IGX_CARD_DIRECTIVES, IgxAvatarComponent, IGX_LIST_DIRECTIVES, IGX_CHIPS_DIRECTIVES, IGX_INPUT_GROUP_DIRECTIVES } from 'igniteui-angular';
 import { IgxCategoryChartModule } from 'igniteui-angular-charts';
 import { HomeComponent } from './home.component';
 

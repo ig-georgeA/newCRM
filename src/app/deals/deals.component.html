@@ -9,7 +9,7 @@
           Deals
         </h5>
       </div>
-      <button igxButton="contained" disabled type="button" igxRipple class="button">
+      <button igxButton="contained" disabled="true" type="button" igxRipple class="button">
         <igx-icon>
           add
         </igx-icon>
@@ -152,11 +152,11 @@
               search
             </igx-icon>
           </igx-prefix>
-          <input type="search" placeholder="Search deals..." igxInput />
+          <input type="search" [(ngModel)]="value" placeholder="Search deals..." igxInput />
         </igx-input-group>
       </div>
       <div class="row-layout group_4">
-        <igx-select type="border" [(ngModel)]="value" class="user-input">
+        <igx-select type="border" [(ngModel)]="value1" class="user-input">
           <igx-select-item value="1">
             All statuses
           </igx-select-item>
@@ -182,7 +182,7 @@
               grid_on
             </igx-icon>
           </button>
-          <button disabled igxButton igxRipple>
+          <button disabled="true" igxButton igxRipple>
             <igx-icon>
               format_list_bulleted
             </igx-icon>

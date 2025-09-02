@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { IgxIconComponent } from '@infragistics/igniteui-angular';
+import { IgxIconComponent } from 'igniteui-angular';
 import { ReportsComponent } from './reports.component';
 
 describe('ReportsComponent', () => {

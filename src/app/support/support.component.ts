@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { IGX_CARD_DIRECTIVES, IGX_GRID_DIRECTIVES, IgxAvatarComponent, IgxButtonDirective, IgxIconComponent, IgxRippleDirective } from '@infragistics/igniteui-angular';
+import { IGX_CARD_DIRECTIVES, IGX_GRID_DIRECTIVES, IgxAvatarComponent, IgxButtonDirective, IgxIconComponent, IgxRippleDirective } from 'igniteui-angular';
 import { IgxCategoryChartModule, IgxPieChartModule } from 'igniteui-angular-charts';
 import { Subject, takeUntil } from 'rxjs';
 import { BoxOfficeRevenueType } from '../models/financial/box-office-revenue-type';

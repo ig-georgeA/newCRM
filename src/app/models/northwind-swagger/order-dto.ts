@@ -4,12 +4,12 @@ export interface OrderDto {
   orderId: number;
   customerId: string;
   employeeId: number;
-  shipperId: number;
-  orderDate: Date;
-  requiredDate: Date;
-  shipVia: string;
+  shipperId?: number;
+  orderDate?: Date;
+  requiredDate?: Date;
+  shipVia?: string;
   freight: number;
-  shipName: string;
+  shipName?: string;
   completed: boolean;
-  shipAddress: AddressDto;
+  shipAddress?: AddressDto;
 }
