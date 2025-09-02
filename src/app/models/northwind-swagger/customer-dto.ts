@@ -1,9 +1,9 @@
 import { AddressDto } from './address-dto';
 
 export interface CustomerDto {
-  customerId: string;
+  customerId?: string;
   companyName: string;
-  contactName: string;
-  contactTitle: string;
-  address: AddressDto;
+  contactName?: string;
+  contactTitle?: string;
+  address?: AddressDto;
 }

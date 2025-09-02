@@ -163,13 +163,6 @@
   width: 18px;
   height: 18px;
 }
-.icon_3 {
-  --size: 24px;
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
-  color: var(--ig-error-500);
-}
 .column-group {
   position: relative;
 }
@@ -183,27 +176,23 @@
   min-width: min-content;
   flex-shrink: 0;
 }
-.new_customer {
+.new_customer_form {
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
   gap: 16px;
   position: relative;
   width: max-content;
-  height: 729px;
+  height: 563px;
   min-width: 50px;
   min-height: 50px;
-  max-height: 729px;
-}
-.button_1 {
-  --ig-size: var(--ig-size-medium);
-  height: max-content;
+  max-height: 563px;
 }
 .input {
   flex-grow: 1;
   flex-basis: 0;
 }
-.button_2 {
+.button_1 {
   flex-shrink: 0;
 }
 .grid {
@@ -211,9 +200,4 @@
   min-height: 0;
   flex-grow: 1;
   flex-basis: 0;
-}
-.banner {
-  height: max-content;
-  min-width: min-content;
-  flex-shrink: 0;
 }
