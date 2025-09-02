@@ -1,7 +1,7 @@
 import { CustomerDto } from './customer-dto';
 
 export interface CustomerDtoPagedResultDto {
-  items: CustomerDto[];
+  items?: CustomerDto[];
   totalRecordsCount: number;
   pageSize: number;
   pageNumber: number;
